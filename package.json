@@ -1,0 +1,19 @@
+{
+    "name": "l5r5e-combat-tracker-dock",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "lint": "node scripts/check-syntax.mjs",
+        "format:check": "node scripts/check-format.mjs",
+        "test": "node --test",
+        "validate:manifest": "node scripts/validate-manifest.mjs",
+        "validate:i18n": "node scripts/validate-i18n.mjs",
+        "build": "node scripts/build.mjs",
+        "package": "node scripts/package.mjs",
+        "ci": "node scripts/ci.mjs"
+    },
+    "engines": {
+        "node": ">=20"
+    }
+}

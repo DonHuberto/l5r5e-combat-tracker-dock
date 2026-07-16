@@ -1,0 +1,15 @@
+<div class="l5rctd-participant-content">
+    {{#if started}}<p class="notification warning">{{localize "L5RCTD.Participant.LateArrivalNotice"}}</p>{{/if}}
+    <section>
+        <h3>{{localize "L5RCTD.Participant.SelectedTokens"}}</h3>
+        <ul>{{#each selected}}<li><img src="{{img}}" alt=""><span>{{name}}</span></li>{{else}}<li>{{localize "L5RCTD.Participant.NoneSelected"}}</li>{{/each}}</ul>
+        <button type="button" data-action="addSelected"><i class="fa-solid fa-plus"></i> {{localize "L5RCTD.Participant.AddSelected"}}</button>
+    </section>
+    <section>
+        <h3>{{localize "L5RCTD.Participant.WorldActor"}}</h3>
+        <select name="actorId"><option value="">—</option>{{#each actors}}<option value="{{id}}">{{name}}{{#unless hasSceneToken}} · {{localize "L5RCTD.Participant.ActorOnly"}}{{/unless}}</option>{{/each}}</select>
+        <label><input type="checkbox" name="preferSceneToken" checked> {{localize "L5RCTD.Participant.PreferSceneToken"}}</label>
+        <button type="button" data-action="addActor"><i class="fa-solid fa-user-plus"></i> {{localize "L5RCTD.Participant.AddActor"}}</button>
+    </section>
+    <p>{{localize "L5RCTD.Participant.DropHint"}}</p>
+</div>

@@ -1,0 +1,156 @@
+{
+    "L5RCTD": {
+        "Dock": {
+            "Title": "Dock Trackera Walki L5R5e",
+            "Round": "Runda",
+            "Turn": "Tura",
+            "NoCombat": "Brak aktywnego konfliktu."
+        },
+        "Common": {
+            "Unknown": "?",
+            "Saved": "Zapisano.",
+            "MoveUp": "Przesuń w górę",
+            "MoveDown": "Przesuń w dół"
+        },
+        "Combatant": {
+            "Unknown": "Nieznany uczestnik",
+            "Group": "Grupa inicjatywy",
+            "OpenSheet": "Otwórz kartę aktora",
+            "Ping": "Wskaż token",
+            "TurnSignals": "Stan tury"
+        },
+        "Resource": {
+            "Fatigue": "Zmęczenie",
+            "Strife": "Konflikt wewnętrzny",
+            "Strength": "Siła armii",
+            "Discipline": "Dyscyplina armii"
+        },
+        "State": {
+            "Defeated": "Pokonany",
+            "Incapacitated": "Obezwładniony",
+            "Compromised": "Skonfliktowany",
+            "ArmyThreshold": "Próg przekroczony — rozstrzygnij na końcu rundy"
+        },
+        "Signal": {
+            "Action": "Akcja główna",
+            "Movement": "Pozostały darmowy ruch",
+            "Water": "Dodatkowa akcja Wody",
+            "Wait": "Oczekuje",
+            "Guard": "Broni",
+            "UndoMovement": "Cofnij ostatni ruch"
+        },
+        "Effect": {
+            "Remove": "Usuń efekt",
+            "RemoveConfirm": "Usunąć {name}?"
+        },
+        "Horizon": {
+            "Title": "Horyzont konfliktu",
+            "Toggle": "Pokaż lub ukryj przyszłe rundy",
+            "Projection": "Projekcja na podstawie aktualnej kolejności i składu"
+        },
+        "Setup": {
+            "Title": "Konfiguracja konfliktu / wydarzenia",
+            "Participants": "Uczestnicy",
+            "Start": "Zapisz plan i rozpocznij konflikt"
+        },
+        "Event": {
+            "FallbackName": "Wydarzenie",
+            "Add": "Dodaj wydarzenie",
+            "Blank": "Puste wydarzenie",
+            "Absolute": "W rundzie",
+            "Relative": "Za tyle rund",
+            "RoundOrOffset": "Runda lub przesunięcie",
+            "Schedule": "Harmonogram wydarzeń",
+            "Hidden": "Ukryte do aktywacji",
+            "Preview": "Publiczna zapowiedź",
+            "GmOnly": "Tylko MG",
+            "Resolve": "Rozstrzygnij / zamknij",
+            "DeleteConfirm": "Usunąć to wydarzenie?",
+            "ActivateNowConfirm": "Początek tej rundy już minął. Aktywować wydarzenie teraz?"
+        },
+        "Template": {
+            "Select": "Wybierz szablon wydarzenia",
+            "Add": "Dodaj z szablonu",
+            "Save": "Zapisz jako szablon",
+            "Saved": "Zapisano szablon wydarzenia.",
+            "Pack": "Zapisywalne światowe kompendium JournalEntry",
+            "SelectPack": "Najpierw wybierz zapisywalne światowe kompendium JournalEntry.",
+            "NoWritablePack": "Brak zapisywalnego kompendium JournalEntry. Utwórz kompendium świata w panelu Kompendiów, a następnie otwórz to okno ponownie."
+        },
+        "Participant": {
+            "Title": "Dodaj uczestnika",
+            "SelectedTokens": "Zaznaczone tokeny",
+            "NoneSelected": "Nie zaznaczono tokenów.",
+            "AddSelected": "Dodaj zaznaczone tokeny",
+            "WorldActor": "Aktor świata",
+            "ActorOnly": "bez tokena",
+            "PreferSceneToken": "Użyj istniejącego tokena na oglądanej scenie, jeśli jest dostępny",
+            "AddActor": "Dodaj aktora",
+            "DropHint": "Możesz także upuścić tutaj dokument Aktora lub Tokenu.",
+            "ActorOnlyConfirm": "Uczestnik bez tokena nie może korzystać z ruchu po siatce ani pasm zasięgu. Kontynuować?",
+            "LateArrivalNotice": "Konflikt już trwa. Systemowy serwis spóźnionych uczestników wymusi właściwy moment i test inicjatywy L5R5e.",
+            "Pending": "Oczekuje do rundy uprawniającej"
+        },
+        "Withdraw": {
+            "Title": "Wycofaj z konfliktu",
+            "Confirm": "Usunąć {name} z tego konfliktu? W mass battle najpierw rozstrzygnij wymagane konsekwencje honoru, chwały lub paniki."
+        },
+        "Profile": {
+            "Title": "Profile opisowych stanów",
+            "Intro": "Skonfiguruj od zera do czterech aktywnych stanów na zasób. Aktywne granice muszą rosnąć i kończyć się na 100%. Dokładne wartości pozostają widoczne wyłącznie dla MG lub WŁAŚCICIELA aktora.",
+            "fatigue": "Zmęczenie",
+            "strife": "Konflikt wewnętrzny",
+            "armyStrength": "Siła armii",
+            "armyDiscipline": "Dyscyplina armii",
+            "Enabled": "Włączony",
+            "UpperBound": "Górna granica procentowa",
+            "Color": "Kolor tekstu",
+            "Add": "Dodaj stan",
+            "Reset": "Przywróć domyślne",
+            "ResetConfirm": "Przywrócić wszystkie profile domyślne?",
+            "Saved": "Zapisano profile stanów.",
+            "Error": {
+                "notArray": "Profil ma nieprawidłowe dane.",
+                "tooManyActive": "Profil może mieć najwyżej cztery aktywne stany.",
+                "invalidBound": "Każda granica musi być liczbą od 0 do 100.",
+                "boundsNotIncreasing": "Aktywne granice muszą ściśle rosnąć i nie mogą się powtarzać.",
+                "missingLabel": "Każdy stan potrzebuje etykiety angielskiej lub polskiej.",
+                "invalidColor": "Użyj szesnastkowego koloru CSS.",
+                "mustEndAt100": "Ostatni aktywny stan musi kończyć się na 100%."
+            }
+        },
+        "Setting": {
+            "Profiles": { "Name": "Profile opisowych stanów", "Label": "Konfiguruj profile", "Hint": "Skonfiguruj bezpieczne prywatnościowo etykiety Fatigue, Strife, Strength i Discipline." },
+            "InformationPolicy": { "Name": "Informacje o zasobach dla niewłaścicieli", "Hint": "Co otrzymują użytkownicy bez uprawnienia WŁAŚCICIEL.", "Descriptive": "Stany opisowe", "None": "Brak informacji o zasobach" },
+            "AutoRemoveMinions": { "Name": "Usuwaj pokonanych minionów", "Hint": "Autorytatywny MG usuwa pokonanych minionów z Combat." },
+            "HideFirstRound": { "Name": "Ukryj wrogów do ich pierwszej tury", "Hint": "Domyślnie wyłączone. Filtruje tylko ten dock i nigdy nie patchuje widoczności Combatant." },
+            "HideEnemyInitiative": { "Name": "Ukryj inicjatywę wrogów", "Hint": "Domyślnie wyłączone. Maskuje tylko wartość w tym docku." },
+            "EffectDescriptions": { "Name": "Pokazuj opisy efektów", "Hint": "Opisy są przygotowywane wyłącznie dla MG lub WŁAŚCICIELA." },
+            "EventChat": { "Name": "Publikuj aktywowane wydarzenia na czacie", "Hint": "Twórz bezpieczną publiczną kartę czatu po aktywacji publicznego wydarzenia." },
+            "Placement": { "Name": "Położenie docka", "Hint": "Przypnij do krawędzi ekranu albo użyj pływającego okna.", "Docked": "Przypięty", "Floating": "Pływający" },
+            "Orientation": { "Name": "Orientacja", "Hint": "Ułóż portrety poziomo albo pionowo.", "Horizontal": "Pozioma", "Vertical": "Pionowa" },
+            "Alignment": { "Name": "Wyrównanie", "Hint": "Wyrównaj listę portretów.", "Start": "Początek", "Center": "Środek", "End": "Koniec" },
+            "Overflow": { "Name": "Przepełnienie", "Hint": "Określ zachowanie zatłoczonej listy portretów.", "Autofit": "Zmniejsz, aby dopasować", "Scroll": "Przewijaj", "Fixed": "Przytnij" },
+            "PortraitSize": { "Name": "Rozmiar portretu", "Hint": "Maksymalna szerokość portretu w pikselach." },
+            "PortraitAspect": { "Name": "Proporcje portretu", "Hint": "Proporcje kadrowania portretu.", "Square": "Kwadrat", "Portrait": "Portret", "Wide": "Szeroki" },
+            "PortraitImage": { "Name": "Źródło portretu", "Hint": "Preferuj grafikę tokena albo aktora.", "Token": "Token", "Actor": "Aktor" },
+            "Roundness": { "Name": "Zaokrąglenie", "Hint": "Styl narożników kart portretów.", "Sharp": "Ostre", "Soft": "Łagodne", "Round": "Okrągłe" },
+            "FutureRounds": { "Name": "Przyszłe rundy", "Hint": "Liczba przyszłych rund w horyzoncie (1–10)." },
+            "Disposition": { "Name": "Kolory nastawienia", "Hint": "Użyj kolorów disposition Foundry na obramowaniu portretów." },
+            "HideUi": { "Name": "Ukryj kolidujący górny interfejs", "Hint": "Wygaszaj górny interfejs, gdy dock jest widoczny." },
+            "NameVisibility": { "Name": "Widoczność nazw", "Hint": "Kontroluj nazwy już widocznych uczestników.", "Foundry": "Zgodnie z tokenem", "Owner": "Tylko MG/WŁAŚCICIEL", "Always": "Zawsze dla widocznych uczestników" }
+        },
+        "Keybinding": {
+            "PreviousTurn": "Poprzednia tura walki",
+            "NextTurn": "Następna tura walki"
+        },
+        "Error": {
+            "WrongSystem": "L5R5e Combat Tracker Dock wymaga systemu l5r5e.",
+            "OldSystem": "L5R5e Combat Tracker Dock wymaga l5r5e {version} lub nowszego.",
+            "MissingApi": "Wymagane publiczne API L5R5e jest niedostępne: {api}.",
+            "LateArrivalApi": "Trwający konflikt wymaga game.l5r5e.lateArrivals. Zaktualizuj system L5R5e.",
+            "InvalidTemplate": "Upuszczony JournalEntry nie jest zgodnym szablonem wydarzenia.",
+            "PackNotWritable": "Wybrane kompendium JournalEntry nie jest zapisywalne."
+        }
+    }
+}

@@ -1,0 +1,27 @@
+<div class="l5rctd-profile-content">
+    <p>{{localize "L5RCTD.Profile.Intro"}}</p>
+    {{#if errors}}<ul class="l5rctd-errors">{{#each errors}}<li>{{this}}</li>{{/each}}</ul>{{/if}}
+    {{#each profiles as |profile|}}
+    <fieldset data-profile="{{profile.key}}">
+        <legend>{{profile.label}}</legend>
+        {{#each profile.states as |state|}}
+        <div class="l5rctd-profile-row" data-state="{{state.id}}">
+            <input type="checkbox" name="enabled" {{checked state.enabled}} aria-label="{{localize 'L5RCTD.Profile.Enabled'}}">
+            <input type="number" name="upperBoundPercent" min="0" max="100" step="1" value="{{state.upperBoundPercent}}" aria-label="{{localize 'L5RCTD.Profile.UpperBound'}}">
+            <input type="text" name="labelEn" value="{{state.label.en}}" placeholder="English" aria-label="English">
+            <input type="text" name="labelPl" value="{{state.label.pl}}" placeholder="Polski" aria-label="Polski">
+            <input type="color" name="color" value="{{state.color}}" aria-label="{{localize 'L5RCTD.Profile.Color'}}">
+            <span class="l5rctd-profile-preview"></span>
+            <button type="button" data-action="moveUp" aria-label="{{localize 'L5RCTD.Common.MoveUp'}}"><i class="fa-solid fa-arrow-up"></i></button>
+            <button type="button" data-action="moveDown" aria-label="{{localize 'L5RCTD.Common.MoveDown'}}"><i class="fa-solid fa-arrow-down"></i></button>
+            <button type="button" data-action="removeState" aria-label="{{localize 'Delete'}}"><i class="fa-solid fa-trash"></i></button>
+        </div>
+        {{/each}}
+        <button type="button" data-action="addState" data-profile="{{profile.key}}"><i class="fa-solid fa-plus"></i> {{localize "L5RCTD.Profile.Add"}}</button>
+    </fieldset>
+    {{/each}}
+    <footer class="form-footer">
+        <button type="button" data-action="resetDefaults"><i class="fa-solid fa-arrow-rotate-left"></i> {{localize "L5RCTD.Profile.Reset"}}</button>
+        <button type="submit"><i class="fa-solid fa-floppy-disk"></i> {{localize "Save"}}</button>
+    </footer>
+</div>

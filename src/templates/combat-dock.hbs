@@ -1,0 +1,115 @@
+<section class="l5rctd-shell" aria-label="{{localize 'L5RCTD.Dock.Title'}}">
+    <header class="l5rctd-toolbar">
+        <div class="l5rctd-round" aria-live="polite">
+            <strong>{{localize "L5RCTD.Dock.Round"}} {{round}}</strong>
+            <span>{{localize "L5RCTD.Dock.Turn"}} {{turn}}</span>
+            <span class="l5rctd-encounter-badge">{{encounterType}}</span>
+        </div>
+        <div class="l5rctd-toolbar-actions">
+            {{#if canAdvance}}
+            <button type="button" data-action="previousTurn" data-tooltip="COMBAT.TurnPrev" aria-label="{{localize 'COMBAT.TurnPrev'}}"><i class="fa-solid fa-chevron-left"></i></button>
+            <button type="button" data-action="nextTurn" data-tooltip="COMBAT.TurnNext" aria-label="{{localize 'COMBAT.TurnNext'}}"><i class="fa-solid fa-chevron-right"></i></button>
+            {{/if}}
+            <button type="button" data-action="toggleHorizon" data-tooltip="L5RCTD.Horizon.Toggle" aria-label="{{localize 'L5RCTD.Horizon.Toggle'}}"><i class="fa-solid fa-eye"></i></button>
+            {{#if isGM}}
+            <button type="button" data-action="rollNpc" data-tooltip="COMBAT.RollNPC" aria-label="{{localize 'COMBAT.RollNPC'}}"><i class="fa-solid fa-users-gear"></i></button>
+            <button type="button" data-action="resetInitiative" data-tooltip="COMBAT.InitiativeReset" aria-label="{{localize 'COMBAT.InitiativeReset'}}"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+            <button type="button" data-action="addParticipant" data-tooltip="L5RCTD.Participant.Title" aria-label="{{localize 'L5RCTD.Participant.Title'}}"><i class="fa-solid fa-user-plus"></i></button>
+            <button type="button" data-action="openSetup" data-tooltip="L5RCTD.Setup.Title" aria-label="{{localize 'L5RCTD.Setup.Title'}}"><i class="fa-solid fa-calendar-days"></i></button>
+            {{#if started}}
+            <button type="button" data-action="endCombat" data-tooltip="COMBAT.End" aria-label="{{localize 'COMBAT.End'}}"><i class="fa-solid fa-stop"></i></button>
+            {{else}}
+            <button type="button" data-action="startCombat" data-tooltip="COMBAT.Begin" aria-label="{{localize 'COMBAT.Begin'}}"><i class="fa-solid fa-play"></i></button>
+            {{/if}}
+            {{/if}}
+        </div>
+    </header>
+
+    {{#if hasCombat}}
+    <div class="l5rctd-carousel" role="list">
+        {{#each events as |event|}}
+        <article class="l5rctd-event l5rctd-event-active" data-event-id="{{event.id}}" role="listitem">
+            <img src="{{event.icon}}" alt="">
+            <strong>{{event.name}}</strong>
+            {{#if event.description}}<p>{{event.description}}</p>{{/if}}
+            {{#if event.editable}}<button type="button" data-action="resolveEvent" aria-label="{{localize 'L5RCTD.Event.Resolve'}}"><i class="fa-solid fa-check"></i></button>{{/if}}
+        </article>
+        {{/each}}
+
+        {{#each combatants as |combatant|}}
+        <article class="l5rctd-combatant {{#if combatant.active}}active{{/if}} {{#if combatant.defeated}}defeated{{/if}} {{#if combatant.disposition}}disposition-{{combatant.disposition}}{{/if}}" data-combatant-id="{{combatant.id}}" role="listitem" aria-label="{{combatant.name}}">
+            <button type="button" class="l5rctd-portrait" data-action="focusCombatant" style="background-image: url('{{combatant.img}}');" aria-label="{{combatant.name}}">
+                {{#if combatant.initiativeRolled}}<span class="l5rctd-initiative">{{combatant.initiative}}</span>{{/if}}
+                {{#if combatant.groupBadge}}<span class="l5rctd-group" title="{{localize 'L5RCTD.Combatant.Group'}}">{{combatant.groupBadge}}</span>{{/if}}
+                {{#if combatant.stance}}<span class="l5rctd-stance">{{combatant.stance}}</span>{{/if}}
+            </button>
+            <div class="l5rctd-combatant-body">
+                <strong class="l5rctd-name">{{combatant.name}}</strong>
+                <div class="l5rctd-resources">
+                    {{#each combatant.resources as |resource|}}
+                    <div class="l5rctd-resource">
+                        <span>{{resource.label}}</span>
+                        {{#if resource.exact}}
+                        <span class="l5rctd-resource-value">{{resource.value}} / {{resource.max}}</span>
+                        {{#if resource.percentage}}<span class="l5rctd-resource-bar"><i style="width: {{resource.percentage}}%;"></i></span>{{/if}}
+                        {{#if resource.state}}<em style="color: {{resource.state.color}}">{{resource.state.label}}</em>{{/if}}
+                        {{else}}
+                        <em style="color: {{resource.state.color}}">{{resource.state.label}}</em>
+                        {{/if}}
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="l5rctd-signals" aria-label="{{localize 'L5RCTD.Combatant.TurnSignals'}}">
+                    <span class="{{#if combatant.signals.actionUsed}}used{{/if}}" title="{{localize 'L5RCTD.Signal.Action'}}"><i class="fa-solid fa-bolt"></i></span>
+                    <span class="{{#if combatant.signals.freeMovementUsed}}used{{/if}}" title="{{localize 'L5RCTD.Signal.Movement'}}"><i class="fa-solid fa-person-running"></i>{{#if combatant.permissions.exact}} {{combatant.signals.movementRemaining}}{{/if}}</span>
+                    {{#if combatant.signals.waterActionAvailable}}<span class="{{#if combatant.signals.waterActionUsed}}used{{/if}}" title="{{localize 'L5RCTD.Signal.Water'}}"><i class="fa-solid fa-droplet"></i></span>{{/if}}
+                    {{#if combatant.signals.waiting}}<span title="{{localize 'L5RCTD.Signal.Wait'}}"><i class="fa-solid fa-hourglass-half"></i></span>{{/if}}
+                    {{#if combatant.signals.guarding}}<span title="{{localize 'L5RCTD.Signal.Guard'}}"><i class="fa-solid fa-shield-halved"></i></span>{{/if}}
+                </div>
+                <ul class="l5rctd-effects">
+                    {{#each combatant.effects as |effect|}}
+                    <li data-effect-uuid="{{effect.uuid}}" data-tooltip="{{#if effect.description}}{{effect.description}}{{else}}{{effect.name}}{{/if}}">
+                        <img src="{{effect.img}}" alt="{{effect.name}}">
+                        {{#if effect.dyingRounds}}<span>{{effect.dyingRounds}}</span>{{/if}}
+                        {{#if effect.removable}}<button type="button" data-action="removeEffect" aria-label="{{localize 'L5RCTD.Effect.Remove'}}"><i class="fa-solid fa-xmark"></i></button>{{/if}}
+                    </li>
+                    {{/each}}
+                </ul>
+                <div class="l5rctd-combatant-actions">
+                    {{#unless combatant.initiativeRolled}}{{#if combatant.permissions.rollInitiative}}<button type="button" data-action="rollInitiative" title="{{localize 'COMBAT.InitiativeRoll'}}"><i class="fa-solid fa-dice"></i></button>{{/if}}{{/unless}}
+                    {{#if combatant.permissions.observe}}<button type="button" data-action="openSheet" title="{{localize 'L5RCTD.Combatant.OpenSheet'}}"><i class="fa-solid fa-file-lines"></i></button>{{/if}}
+                    {{#if combatant.permissions.ping}}<button type="button" data-action="pingCombatant" title="{{localize 'L5RCTD.Combatant.Ping'}}"><i class="fa-solid fa-bullseye"></i></button>{{/if}}
+                    {{#if combatant.permissions.undoMovement}}<button type="button" data-action="undoMovement" title="{{localize 'L5RCTD.Signal.UndoMovement'}}"><i class="fa-solid fa-shoe-prints"></i></button>{{/if}}
+                    {{#if combatant.permissions.withdraw}}<button type="button" data-action="withdraw" title="{{localize 'L5RCTD.Withdraw.Title'}}"><i class="fa-solid fa-person-walking-arrow-right"></i></button>{{/if}}
+                </div>
+            </div>
+        </article>
+        {{/each}}
+    </div>
+    {{else}}
+    <p class="l5rctd-empty">{{localize "L5RCTD.Dock.NoCombat"}}</p>
+    {{/if}}
+
+    {{#if horizon}}
+    <section class="l5rctd-horizon" aria-label="{{localize 'L5RCTD.Horizon.Title'}}">
+        <header><strong>{{localize "L5RCTD.Horizon.Title"}}</strong><span>{{localize "L5RCTD.Horizon.Projection"}}</span><button type="button" data-action="closeHorizon" aria-label="{{localize 'Close'}}"><i class="fa-solid fa-xmark"></i></button></header>
+        <div class="l5rctd-lanes">
+            {{#each horizon.lanes as |lane|}}
+            <section class="l5rctd-lane {{#if lane.current}}current{{/if}}" data-round-lane="{{lane.round}}">
+                <h3>{{localize "L5RCTD.Dock.Round"}} {{lane.round}}</h3>
+                <div class="l5rctd-lane-events">
+                    {{#each lane.events as |event|}}
+                    <article class="l5rctd-event" data-event-id="{{event.id}}" draggable="{{event.editable}}"><img src="{{event.icon}}" alt=""><strong>{{event.name}}</strong><small>{{event.state}}</small></article>
+                    {{/each}}
+                </div>
+                <ol class="l5rctd-projection-list">
+                    {{#each lane.participants as |participant|}}
+                    <li class="{{#if participant.pending}}pending{{/if}}"><img src="{{participant.img}}" alt=""><span>{{participant.name}}</span>{{#if participant.pending}}<small>{{localize "L5RCTD.Participant.Pending"}}</small>{{/if}}</li>
+                    {{/each}}
+                </ol>
+            </section>
+            {{/each}}
+        </div>
+    </section>
+    {{/if}}
+</section>

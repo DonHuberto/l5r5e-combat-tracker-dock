@@ -1,0 +1,54 @@
+<div class="l5rctd-setup-content">
+    <section>
+        <h2>{{combatName}}</h2>
+        <h3>{{localize "L5RCTD.Setup.Participants"}}</h3>
+        <ul class="l5rctd-setup-participants">{{#each participants}}<li><img src="{{img}}" alt=""><span>{{name}}</span></li>{{/each}}</ul>
+    </section>
+    <section class="l5rctd-new-event">
+        <h3>{{localize "L5RCTD.Event.Add"}}</h3>
+        <select name="newEventMode"><option value="absolute">{{localize "L5RCTD.Event.Absolute"}}</option><option value="relative">{{localize "L5RCTD.Event.Relative"}}</option></select>
+        <input type="number" name="newEventTime" min="0" step="1" value="1" aria-label="{{localize 'L5RCTD.Event.RoundOrOffset'}}">
+        <button type="button" data-action="addEvent"><i class="fa-solid fa-plus"></i> {{localize "L5RCTD.Event.Blank"}}</button>
+        <select name="templateUuid"><option value="">{{localize "L5RCTD.Template.Select"}}</option>{{#each templates}}<option value="{{uuid}}">{{name}}</option>{{/each}}</select>
+        <button type="button" data-action="addTemplate"><i class="fa-solid fa-book"></i> {{localize "L5RCTD.Template.Add"}}</button>
+    </section>
+    <section>
+        <h3>{{localize "L5RCTD.Event.Schedule"}}</h3>
+        <div class="l5rctd-event-editor-list">
+            {{#each events as |event|}}
+            <article class="l5rctd-event-editor" data-event-id="{{event.id}}">
+                <div class="l5rctd-event-editor-main">
+                    <input type="text" name="name" value="{{event.name}}" placeholder="{{localize 'L5RCTD.Event.FallbackName'}}" aria-label="{{localize 'Name'}}">
+                    <input type="text" name="icon" value="{{event.icon}}" placeholder="icons/svg/clockwork.svg" aria-label="{{localize 'Image'}}">
+                    <textarea name="description" placeholder="{{localize 'Description'}}">{{event.description}}</textarea>
+                </div>
+                <div class="l5rctd-event-editor-meta">
+                    <label>{{localize "L5RCTD.Dock.Round"}} <input type="number" name="targetRound" min="1" step="1" value="{{event.targetRound}}"></label>
+                    <input type="hidden" name="sort" value="{{event.sort}}">
+                    <select name="visibility">
+                        <option value="hiddenUntilTrigger" {{#if event.isHidden}}selected{{/if}}>{{localize "L5RCTD.Event.Hidden"}}</option>
+                        <option value="publicPreview" {{#if event.isPreview}}selected{{/if}}>{{localize "L5RCTD.Event.Preview"}}</option>
+                        <option value="gmOnly" {{#if event.isGmOnly}}selected{{/if}}>{{localize "L5RCTD.Event.GmOnly"}}</option>
+                    </select>
+                    <span>{{event.state}}</span>
+                </div>
+                <div class="l5rctd-event-editor-actions">
+                    <button type="button" data-action="shiftEarlier" aria-label="-1"><i class="fa-solid fa-minus"></i></button>
+                    <button type="button" data-action="shiftLater" aria-label="+1"><i class="fa-solid fa-plus"></i></button>
+                    <button type="button" data-action="moveUp" aria-label="{{localize 'L5RCTD.Common.MoveUp'}}"><i class="fa-solid fa-arrow-up"></i></button>
+                    <button type="button" data-action="moveDown" aria-label="{{localize 'L5RCTD.Common.MoveDown'}}"><i class="fa-solid fa-arrow-down"></i></button>
+                    {{#if event.isActive}}<button type="button" data-action="resolveEvent"><i class="fa-solid fa-check"></i> {{localize "L5RCTD.Event.Resolve"}}</button>{{/if}}
+                    <button type="button" data-action="saveTemplate"><i class="fa-solid fa-bookmark"></i> {{localize "L5RCTD.Template.Save"}}</button>
+                    <button type="button" data-action="removeEvent"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            </article>
+            {{/each}}
+        </div>
+        <label>{{localize "L5RCTD.Template.Pack"}} <select name="templatePack"><option value="">—</option>{{#each packs}}<option value="{{id}}">{{name}}</option>{{/each}}</select></label>
+        {{#unless hasWritablePacks}}<p class="notification warning">{{localize "L5RCTD.Template.NoWritablePack"}}</p>{{/unless}}
+    </section>
+    <footer class="form-footer">
+        <button type="button" data-action="save"><i class="fa-solid fa-floppy-disk"></i> {{localize "Save"}}</button>
+        {{#unless started}}<button type="button" data-action="startCombat"><i class="fa-solid fa-play"></i> {{localize "L5RCTD.Setup.Start"}}</button>{{/unless}}
+    </footer>
+</div>

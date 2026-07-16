@@ -1,0 +1,156 @@
+{
+    "L5RCTD": {
+        "Dock": {
+            "Title": "L5R5e Combat Tracker Dock",
+            "Round": "Round",
+            "Turn": "Turn",
+            "NoCombat": "No active combat encounter."
+        },
+        "Common": {
+            "Unknown": "?",
+            "Saved": "Saved.",
+            "MoveUp": "Move up",
+            "MoveDown": "Move down"
+        },
+        "Combatant": {
+            "Unknown": "Unknown combatant",
+            "Group": "Initiative group",
+            "OpenSheet": "Open actor sheet",
+            "Ping": "Ping token",
+            "TurnSignals": "Turn state"
+        },
+        "Resource": {
+            "Fatigue": "Fatigue",
+            "Strife": "Strife",
+            "Strength": "Army strength",
+            "Discipline": "Army discipline"
+        },
+        "State": {
+            "Defeated": "Defeated",
+            "Incapacitated": "Incapacitated",
+            "Compromised": "Compromised",
+            "ArmyThreshold": "Threshold exceeded — resolve at round end"
+        },
+        "Signal": {
+            "Action": "Primary action",
+            "Movement": "Free movement remaining",
+            "Water": "Water extra action",
+            "Wait": "Waiting",
+            "Guard": "Guarding",
+            "UndoMovement": "Undo last movement"
+        },
+        "Effect": {
+            "Remove": "Remove effect",
+            "RemoveConfirm": "Remove {name}?"
+        },
+        "Horizon": {
+            "Title": "Conflict horizon",
+            "Toggle": "Show or hide future rounds",
+            "Projection": "Projection using the current order and participants"
+        },
+        "Setup": {
+            "Title": "Conflict Setup / Events",
+            "Participants": "Participants",
+            "Start": "Save plan and start conflict"
+        },
+        "Event": {
+            "FallbackName": "Global Event",
+            "Add": "Add event",
+            "Blank": "Blank event",
+            "Absolute": "At round",
+            "Relative": "In this many rounds",
+            "RoundOrOffset": "Round or offset",
+            "Schedule": "Event schedule",
+            "Hidden": "Hidden until triggered",
+            "Preview": "Public preview",
+            "GmOnly": "GM only",
+            "Resolve": "Resolve / dismiss",
+            "DeleteConfirm": "Delete this event?",
+            "ActivateNowConfirm": "The beginning of that round has already passed. Activate the event now?"
+        },
+        "Template": {
+            "Select": "Choose an event template",
+            "Add": "Add from template",
+            "Save": "Save as template",
+            "Saved": "Event template saved.",
+            "Pack": "Writable world JournalEntry pack",
+            "SelectPack": "Select a writable world JournalEntry pack first.",
+            "NoWritablePack": "No writable JournalEntry pack is available. Create a world compendium from the Compendium sidebar, then reopen this window."
+        },
+        "Participant": {
+            "Title": "Add Participant",
+            "SelectedTokens": "Selected tokens",
+            "NoneSelected": "No tokens selected.",
+            "AddSelected": "Add selected tokens",
+            "WorldActor": "World actor",
+            "ActorOnly": "actor only",
+            "PreferSceneToken": "Use an existing token on the viewed scene when available",
+            "AddActor": "Add actor",
+            "DropHint": "You can also drop an Actor or Token document here.",
+            "ActorOnlyConfirm": "An actor-only combatant cannot use grid movement or range bands. Continue?",
+            "LateArrivalNotice": "This combat has started. The system late-arrival service will enforce the appropriate L5R5e timing and initiative test.",
+            "Pending": "Pending until eligible round"
+        },
+        "Withdraw": {
+            "Title": "Withdraw from Conflict",
+            "Confirm": "Remove {name} from this conflict? In a mass battle, first resolve any honor, glory, or panic consequences required by the rules."
+        },
+        "Profile": {
+            "Title": "Descriptive state profiles",
+            "Intro": "Configure zero to four active states per resource. Active bounds must increase and end at 100%. Exact values remain visible only to a GM or the actor's OWNER.",
+            "fatigue": "Fatigue",
+            "strife": "Strife",
+            "armyStrength": "Army strength",
+            "armyDiscipline": "Army discipline",
+            "Enabled": "Enabled",
+            "UpperBound": "Upper percentage bound",
+            "Color": "Text color",
+            "Add": "Add state",
+            "Reset": "Restore defaults",
+            "ResetConfirm": "Restore all default profiles?",
+            "Saved": "State profiles saved.",
+            "Error": {
+                "notArray": "The profile has invalid data.",
+                "tooManyActive": "A profile may have at most four active states.",
+                "invalidBound": "Every bound must be a number from 0 to 100.",
+                "boundsNotIncreasing": "Active bounds must be strictly increasing without duplicates.",
+                "missingLabel": "Every state needs an English or Polish label.",
+                "invalidColor": "Use a hexadecimal CSS color.",
+                "mustEndAt100": "The last active state must end at 100%."
+            }
+        },
+        "Setting": {
+            "Profiles": { "Name": "Descriptive state profiles", "Label": "Configure profiles", "Hint": "Configure privacy-safe Fatigue, Strife, Strength, and Discipline labels." },
+            "InformationPolicy": { "Name": "Non-owner resource information", "Hint": "What users without OWNER permission receive.", "Descriptive": "Descriptive states", "None": "No resource information" },
+            "AutoRemoveMinions": { "Name": "Remove defeated minions", "Hint": "The authoritative GM removes defeated minions from Combat." },
+            "HideFirstRound": { "Name": "Hide enemies until their first turn", "Hint": "Off by default. Filters only this dock and never patches Combatant visibility." },
+            "HideEnemyInitiative": { "Name": "Hide enemy initiative", "Hint": "Off by default. Masks only this dock's value." },
+            "EffectDescriptions": { "Name": "Show effect descriptions", "Hint": "Descriptions are only prepared for a GM or OWNER." },
+            "EventChat": { "Name": "Post triggered events to chat", "Hint": "Create a safe public chat card when a public event activates." },
+            "Placement": { "Name": "Dock placement", "Hint": "Attach to the screen edge or use a floating window.", "Docked": "Docked", "Floating": "Floating" },
+            "Orientation": { "Name": "Orientation", "Hint": "Arrange portraits horizontally or vertically.", "Horizontal": "Horizontal", "Vertical": "Vertical" },
+            "Alignment": { "Name": "Alignment", "Hint": "Align the portrait list.", "Start": "Start", "Center": "Center", "End": "End" },
+            "Overflow": { "Name": "Overflow", "Hint": "Choose how crowded portrait lists behave.", "Autofit": "Shrink to fit", "Scroll": "Scroll", "Fixed": "Clip" },
+            "PortraitSize": { "Name": "Portrait size", "Hint": "Maximum portrait width in pixels." },
+            "PortraitAspect": { "Name": "Portrait aspect", "Hint": "Portrait crop ratio.", "Square": "Square", "Portrait": "Portrait", "Wide": "Wide" },
+            "PortraitImage": { "Name": "Portrait source", "Hint": "Prefer token or actor artwork.", "Token": "Token", "Actor": "Actor" },
+            "Roundness": { "Name": "Roundness", "Hint": "Corner style for portrait cards.", "Sharp": "Sharp", "Soft": "Soft", "Round": "Round" },
+            "FutureRounds": { "Name": "Future rounds", "Hint": "Number of future rounds shown in the horizon (1–10)." },
+            "Disposition": { "Name": "Disposition colors", "Hint": "Use Foundry disposition colors on portrait borders." },
+            "HideUi": { "Name": "Hide conflicting top UI", "Hint": "Fade the top UI while the dock is visible." },
+            "NameVisibility": { "Name": "Name visibility", "Hint": "Control names within already-visible combatants.", "Foundry": "Follow token display", "Owner": "GM/OWNER only", "Always": "Always for visible combatants" }
+        },
+        "Keybinding": {
+            "PreviousTurn": "Previous combat turn",
+            "NextTurn": "Next combat turn"
+        },
+        "Error": {
+            "WrongSystem": "L5R5e Combat Tracker Dock requires the l5r5e system.",
+            "OldSystem": "L5R5e Combat Tracker Dock requires l5r5e {version} or newer.",
+            "MissingApi": "The required L5R5e public API is unavailable: {api}.",
+            "LateArrivalApi": "This running combat requires game.l5r5e.lateArrivals. Update the L5R5e system.",
+            "InvalidTemplate": "The dropped JournalEntry is not a compatible event template.",
+            "PackNotWritable": "The selected JournalEntry compendium is not writable."
+        }
+    }
+}

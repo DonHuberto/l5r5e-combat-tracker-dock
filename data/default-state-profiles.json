@@ -1,0 +1,23 @@
+{
+    "schemaVersion": 1,
+    "fatigue": [
+        { "id": "fatigue-fresh", "enabled": true, "upperBoundPercent": 33, "order": 0, "label": { "en": "Fresh", "pl": "Wypoczęty" }, "color": "#3da35d" },
+        { "id": "fatigue-winded", "enabled": true, "upperBoundPercent": 66, "order": 1, "label": { "en": "Winded", "pl": "Zdyszany" }, "color": "#d39b28" },
+        { "id": "fatigue-weary", "enabled": true, "upperBoundPercent": 100, "order": 2, "label": { "en": "Weary", "pl": "Utrudzony" }, "color": "#d96c27" }
+    ],
+    "strife": [
+        { "id": "strife-composed", "enabled": true, "upperBoundPercent": 33, "order": 0, "label": { "en": "Composed", "pl": "Opanowany" }, "color": "#3da35d" },
+        { "id": "strife-tense", "enabled": true, "upperBoundPercent": 66, "order": 1, "label": { "en": "Tense", "pl": "Napięty" }, "color": "#d39b28" },
+        { "id": "strife-edge", "enabled": true, "upperBoundPercent": 100, "order": 2, "label": { "en": "At the Edge", "pl": "Na granicy" }, "color": "#d94a32" }
+    ],
+    "armyStrength": [
+        { "id": "strength-ready", "enabled": true, "upperBoundPercent": 33, "order": 0, "label": { "en": "Battle-ready", "pl": "Gotowa do walki" }, "color": "#3da35d" },
+        { "id": "strength-pressed", "enabled": true, "upperBoundPercent": 66, "order": 1, "label": { "en": "Taking losses", "pl": "Ponosi straty" }, "color": "#d39b28" },
+        { "id": "strength-critical", "enabled": true, "upperBoundPercent": 100, "order": 2, "label": { "en": "Severe losses", "pl": "Ciężkie straty" }, "color": "#d96c27" }
+    ],
+    "armyDiscipline": [
+        { "id": "discipline-steady", "enabled": true, "upperBoundPercent": 33, "order": 0, "label": { "en": "Steady", "pl": "Niezachwiana" }, "color": "#3da35d" },
+        { "id": "discipline-shaken", "enabled": true, "upperBoundPercent": 66, "order": 1, "label": { "en": "Shaken", "pl": "Zachwiana" }, "color": "#d39b28" },
+        { "id": "discipline-breaking", "enabled": true, "upperBoundPercent": 100, "order": 2, "label": { "en": "Near collapse", "pl": "Bliska załamania" }, "color": "#d94a32" }
+    ]
+}
