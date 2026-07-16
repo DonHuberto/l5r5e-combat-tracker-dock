@@ -32,7 +32,7 @@ MG może wybrać politykę „stany opisowe” albo „brak informacji”. Profi
 
 ## Dock i sterowanie
 
-Dock korzysta z `combat.turns` bez sortowania lub mutowania kolejności. Obsługuje inicjatywę `0`, nierzuconą inicjatywę, badge grupy, stance, efekty, sygnały akcji/ruchu/Wody, cofnięcie ruchu, fokus/ping tokena i otwarcie karty zgodnie z uprawnieniami. MG ma natywne sterowanie startem, końcem, turą, resetem i rzutami NPC. Układ może być poziomy/pionowy, przypięty/pływający, automatycznie dopasowany, przewijany lub stały.
+Dock korzysta z `combat.turns` bez sortowania lub mutowania kolejności. Obsługuje inicjatywę `0`, nierzuconą inicjatywę, badge grupy, stance, efekty, sygnały akcji/ruchu/Wody, cofnięcie ruchu, fokus/ping tokena i otwarcie karty zgodnie z uprawnieniami. MG ma natywne sterowanie startem, końcem, turą, resetem i rzutami NPC. Domyślnie dock jest przypięty u góry, używa portretu Aktora oraz kart 128 px o proporcji 1.5; ustawienia klienta pozwalają wybrać dolną krawędź, Token, inny rozmiar, orientację poziomą/pionową, tryb pływający i sposób przepełnienia.
 
 ## Wydarzenia i horyzont
 

@@ -128,6 +128,7 @@
             "EffectDescriptions": { "Name": "Pokazuj opisy efektów", "Hint": "Opisy są przygotowywane wyłącznie dla MG lub WŁAŚCICIELA." },
             "EventChat": { "Name": "Publikuj aktywowane wydarzenia na czacie", "Hint": "Twórz bezpieczną publiczną kartę czatu po aktywacji publicznego wydarzenia." },
             "Placement": { "Name": "Położenie docka", "Hint": "Przypnij do krawędzi ekranu albo użyj pływającego okna.", "Docked": "Przypięty", "Floating": "Pływający" },
+            "DockEdge": { "Name": "Krawędź przypięcia", "Hint": "Umieść dock u góry albo u dołu ekranu.", "Top": "Góra", "Bottom": "Dół" },
             "Orientation": { "Name": "Orientacja", "Hint": "Ułóż portrety poziomo albo pionowo.", "Horizontal": "Pozioma", "Vertical": "Pionowa" },
             "Alignment": { "Name": "Wyrównanie", "Hint": "Wyrównaj listę portretów.", "Start": "Początek", "Center": "Środek", "End": "Koniec" },
             "Overflow": { "Name": "Przepełnienie", "Hint": "Określ zachowanie zatłoczonej listy portretów.", "Autofit": "Zmniejsz, aby dopasować", "Scroll": "Przewijaj", "Fixed": "Przytnij" },

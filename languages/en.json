@@ -128,6 +128,7 @@
             "EffectDescriptions": { "Name": "Show effect descriptions", "Hint": "Descriptions are only prepared for a GM or OWNER." },
             "EventChat": { "Name": "Post triggered events to chat", "Hint": "Create a safe public chat card when a public event activates." },
             "Placement": { "Name": "Dock placement", "Hint": "Attach to the screen edge or use a floating window.", "Docked": "Docked", "Floating": "Floating" },
+            "DockEdge": { "Name": "Docked screen edge", "Hint": "Place the dock at the top or bottom of the screen.", "Top": "Top", "Bottom": "Bottom" },
             "Orientation": { "Name": "Orientation", "Hint": "Arrange portraits horizontally or vertically.", "Horizontal": "Horizontal", "Vertical": "Vertical" },
             "Alignment": { "Name": "Alignment", "Hint": "Align the portrait list.", "Start": "Start", "Center": "Center", "End": "End" },
             "Overflow": { "Name": "Overflow", "Hint": "Choose how crowded portrait lists behave.", "Autofit": "Shrink to fit", "Scroll": "Scroll", "Fixed": "Clip" },

@@ -161,17 +161,18 @@ export class CombatDock extends HandlebarsApplicationMixin(ApplicationV2) {
     _applyLayout() {
         if (!this.element) return;
         const settings = getDockSettings();
-        const aspect = { square: 1, portrait: 1.25, wide: 0.75 }[settings.portraitAspect] ?? 1.25;
+        const aspect = { square: 1, portrait: 1.5, wide: 0.8 }[settings.portraitAspect] ?? 1.5;
         let size = settings.portraitSize;
         const count = Math.max(1, this.element.querySelectorAll(".l5rctd-combatant").length);
         if (settings.overflow === "autofit") {
-            const available = settings.orientation === "vertical" ? window.innerHeight * 0.7 : window.innerWidth * 0.78;
+            const available = settings.orientation === "vertical" ? window.innerHeight * 0.78 : window.innerWidth * 0.92;
             const footprint = settings.orientation === "vertical" ? aspect : 1;
-            size = Math.max(44, Math.min(size, Math.floor(available / count / footprint)));
+            size = Math.max(72, Math.min(size, Math.floor(available / count / footprint)));
         }
         this.element.style.setProperty("--l5rctd-portrait-size", `${size}px`);
         this.element.style.setProperty("--l5rctd-portrait-aspect", String(aspect));
         this.element.dataset.placement = settings.placement;
+        this.element.dataset.edge = settings.dockEdge;
         this.element.dataset.orientation = settings.orientation;
         this.element.dataset.alignment = settings.alignment;
         this.element.dataset.overflow = settings.overflow;

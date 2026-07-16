@@ -3,8 +3,8 @@
 | Reference behavior/setting | Decision | L5R5e dock behavior |
 | --- | --- | --- |
 | Horizontal/vertical direction | Implement | Client setting with horizontal and vertical layouts. |
-| Docked/floating placement | Implement | Docked bottom edge or framed floating `ApplicationV2`. |
-| Portrait size and aspect | Implement | Numeric size plus square/portrait/wide aspect. |
+| Docked/floating placement | Implement | Docked top edge by default, optional bottom edge, or framed floating `ApplicationV2`. |
+| Portrait size and aspect | Implement | Numeric size plus square/portrait/wide aspect; the image-first default is 128 px at a 1.5 portrait aspect. |
 | Overflow/carousel | Implement | Auto-fit, scrolling, and fixed-size overflow without re-sorting `combat.turns`. |
 | Alignment | Implement | Start, center, or end alignment. |
 | Carousel rotation | Replace with L5R5e solution | Current participant is highlighted and scrolled into view; initiative order remains the system's canonical order. |
