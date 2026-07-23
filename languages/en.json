@@ -6,6 +6,11 @@
             "Turn": "Turn",
             "NoCombat": "No active combat encounter."
         },
+        "Visibility": {
+            "Toggle": "Show or hide L5R5e Combat Tracker Dock",
+            "Collapse": "Collapse tracker",
+            "Restore": "Restore tracker"
+        },
         "Common": {
             "Unknown": "?",
             "Saved": "Saved.",

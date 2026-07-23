@@ -191,10 +191,28 @@
     min-height: 44px;
     border: 0 !important;
     border-radius: 0 !important;
-    background-position: center top;
-    background-size: cover;
     filter: saturate(0.94) contrast(1.04);
     transition: filter 150ms ease, transform 220ms ease;
+}
+
+.l5rctd-portrait-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.l5rctd-collapsed-bar {
+    width: auto;
+    min-width: 210px;
+    opacity: 1;
+}
+
+#l5rctd-combat-dock:has(.l5rctd-collapsed-bar) .l5rctd-shell {
+    padding: 2px;
 }
 
 .l5rctd-combatant:hover .l5rctd-portrait,

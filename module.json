@@ -2,7 +2,7 @@
     "id": "l5r5e-combat-tracker-dock",
     "title": "L5R5e Combat Tracker Dock",
     "description": "A privacy-safe native combat tracker dock and conflict timeline for the L5R5e system.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "authors": [
         {
             "name": "DonHuberto"
@@ -19,7 +19,7 @@
                 "id": "l5r5e",
                 "type": "system",
                 "compatibility": {
-                    "minimum": "1.14.103"
+                    "minimum": "1.14.105"
                 }
             }
         ]
@@ -44,5 +44,6 @@
     ],
     "url": "https://github.com/DonHuberto/l5r5e-combat-tracker-dock",
     "manifest": "https://github.com/DonHuberto/l5r5e-combat-tracker-dock/releases/latest/download/module.json",
-    "download": "https://github.com/DonHuberto/l5r5e-combat-tracker-dock/releases/download/v0.1.1/module.zip"
+    "download": "https://github.com/DonHuberto/l5r5e-combat-tracker-dock/releases/download/v0.1.2/module.zip",
+    "changelog": "https://github.com/DonHuberto/l5r5e-combat-tracker-dock/blob/main/CHANGELOG.md"
 }

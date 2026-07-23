@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2 - 2026-07-23
+
+- Add one client-scoped visibility controller with persistent visible/collapsed states and a Foundry VTT 14 Token Scene Control.
+- Make close, hide, collapse, restore, reload and canvas lifecycle behavior singleton-safe.
+- Add a compact collapsed round/turn bar without portrait layout.
+- Render Actor/Token portraits through `<img>` or `<video>` media elements and refresh on document changes.
+- Require L5R5e core 1.14.105 and extend manifest/release validation.
+
 ## 0.1.1 - 2026-07-16
 
 - Move the dock to the top edge by default and add a client-side top/bottom edge setting.

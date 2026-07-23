@@ -2,7 +2,7 @@
 
 Status legend: `[ ]` requires a running Foundry client; automated analogues are covered by `npm test`.
 
-- [ ] Install system `l5r5e 1.14.103` and module `0.1.0`; confirm no compatibility warning.
+- [ ] Install system `l5r5e 1.14.105` and module `0.1.2`; confirm no compatibility warning.
 - [ ] Open one GM and one player client. Give the player OWNER, OBSERVER and NONE access to three different actors.
 - [ ] Inspect the player DOM: exact Fatigue/Strife/maxima, percentages, bar widths and hidden movement budgets occur only for the OWNER actor.
 - [ ] Test character, adversary, minion and army; initiative `0`, null initiative, group badge and hidden Combatant.
@@ -20,3 +20,11 @@ Status legend: `[ ]` requires a running Foundry client; automated analogues are 
 - [ ] Test late arrival separately: Intrigue/Sentiment now, Skirmish/Tactics TN 2 next round, Duel third-participant rejection, Mass Battle/Command TN 2 next round.
 - [ ] Repeat event trigger, death cleanup and late arrival with two active GMs; only the elected authority should mutate.
 - [ ] Test previous/next-turn keybindings and verify closing/reopening the dock does not duplicate hooks or listeners.
+- [ ] Without an active Combat, confirm the Token Scene Control toggle remains visible.
+- [ ] Use X, Scene Control off/on, collapse and restore; confirm hide/collapse/horizon expansion remain distinct
+  and at most one dock exists.
+- [ ] Reload and change scenes with visible/collapsed combinations; each client retains only its own settings.
+- [ ] Switch portrait mode between Actor and Token where the images differ; test apostrophes/spaces, video and
+  a synthetic token actor.
+- [ ] As GM, click initiative for a player-owned PC while its owner is online; confirm the core picker opens
+  locally for the GM.

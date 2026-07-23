@@ -8,9 +8,11 @@ import { EventTemplateService } from "./services/event-template-service.js";
 import { ParticipantService } from "./services/participant-service.js";
 import { RemovalService } from "./services/removal-service.js";
 import { registerSettings, seedDefaultProfiles, setStateProfileConfigClass } from "./settings.js";
+import { VisibilityController } from "./services/visibility-controller.js";
 
 let services = null;
 let compatibilityNoticeShown = false;
+let visibility = null;
 
 function localize(key, data = {}) {
     return Object.keys(data).length ? game.i18n.format(key, data) : game.i18n.localize(key);
@@ -27,10 +29,7 @@ function buildServices() {
 
 async function renderDock() {
     if (!services?.gateway.validate().ok) return;
-    if (ui.l5r5eCombatTrackerDock) return ui.l5r5eCombatTrackerDock.render({ force: true });
-    const dock = new CombatDock(services);
-    ui.l5r5eCombatTrackerDock = dock;
-    return dock.render({ force: true });
+    return visibility?.setVisible(true);
 }
 
 async function maybeOpenSetup(combat) {
@@ -69,6 +68,9 @@ Hooks.once("init", () => {
     setStateProfileConfigClass(StateProfileConfig);
     registerSettings();
     registerKeybindings();
+    visibility = new VisibilityController({
+        createDock: () => services ? new CombatDock({ ...services, visibilityController: visibility }) : null,
+    });
     console.info(`${MODULE_TITLE} | Initializing`);
 });
 
@@ -85,11 +87,14 @@ Hooks.once("ready", async () => {
     }
     await seedDefaultProfiles();
     const module = game.modules.get(MODULE_ID);
-    if (module) module.api = Object.freeze({ ...services, renderDock });
-    await renderDock();
+    if (module) module.api = Object.freeze({ ...services, renderDock, visibility });
+    await visibility.sync();
     await services.removalService.prune(services.gateway.currentCombat());
     await maybeOpenSetup(services.gateway.currentCombat());
 });
+
+Hooks.on("getSceneControlButtons", (controls) => visibility?.registerSceneControl(controls));
+Hooks.on("canvasReady", () => visibility?.sync());
 
 Hooks.on("createCombat", async (combat) => {
     if (!services) return;

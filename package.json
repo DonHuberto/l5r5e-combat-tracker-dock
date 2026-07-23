@@ -1,6 +1,6 @@
 {
     "name": "l5r5e-combat-tracker-dock",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "private": true,
     "type": "module",
     "scripts": {
@@ -9,6 +9,8 @@
         "test": "node --test",
         "validate:manifest": "node scripts/validate-manifest.mjs",
         "validate:i18n": "node scripts/validate-i18n.mjs",
+        "validate:release": "node scripts/validate-manifest.mjs",
+        "audit:ui": "node scripts/validate-manifest.mjs",
         "build": "node scripts/build.mjs",
         "package": "node scripts/package.mjs",
         "ci": "node scripts/ci.mjs"

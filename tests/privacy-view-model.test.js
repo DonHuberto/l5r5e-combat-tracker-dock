@@ -64,3 +64,28 @@ test("GM view retains exact values, zero initiative, and group data without muta
     assert.equal(viewModel.groupBadge, "wave-one");
     assert.deepEqual(combatant.flags, before);
 });
+
+test("Actor/Token portrait setting selects the exact source, supports video and synthetic actors", async () => {
+    const actor = makeActor({ permissions: { gm: 3 } });
+    actor.img = "Actor portraits/O'Hara.webp";
+    const combatant = makeCombatant({ actor });
+    combatant.token.texture.src = "tokens/animated.webm";
+    const base = { combatant, combat: { combatant, turns: [combatant], turn: 0 }, user: makeUser({ id: "gm", isGM: true }), profiles, gateway: gatewayFor(actor) };
+    const actorView = await buildCombatantViewModel({ ...base, settings: { informationPolicy: "descriptive", portraitImage: "actor" } });
+    const tokenView = await buildCombatantViewModel({ ...base, settings: { informationPolicy: "descriptive", portraitImage: "token" } });
+    assert.equal(actorView.img, actor.img);
+    assert.equal(actorView.portraitVideo, false);
+    assert.equal(tokenView.img, combatant.token.texture.src);
+    assert.equal(tokenView.portraitVideo, true);
+    const synthetic = { ...actor, id: "synthetic", img: "synthetic-actor.png", isToken: true };
+    combatant.actor = synthetic;
+    const syntheticView = await buildCombatantViewModel({ ...base, combatant, gateway: gatewayFor(synthetic), settings: { informationPolicy: "descriptive", portraitImage: "actor" } });
+    assert.equal(syntheticView.img, "synthetic-actor.png");
+});
+
+test("portrait template uses media elements rather than inline CSS URLs", () => {
+    const template = readFileSync(fileURLToPath(new URL("../src/templates/combat-dock.hbs", import.meta.url)), "utf8");
+    assert.doesNotMatch(template, /background-image/);
+    assert.match(template, /<img class="l5rctd-portrait-media"/);
+    assert.match(template, /<video class="l5rctd-portrait-media"/);
+});

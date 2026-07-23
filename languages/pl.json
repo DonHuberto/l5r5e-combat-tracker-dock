@@ -6,6 +6,11 @@
             "Turn": "Tura",
             "NoCombat": "Brak aktywnego konfliktu."
         },
+        "Visibility": {
+            "Toggle": "Pokaż lub ukryj L5R5e Combat Tracker Dock",
+            "Collapse": "Zwiń tracker",
+            "Restore": "Przywróć tracker"
+        },
         "Common": {
             "Unknown": "?",
             "Saved": "Zapisano.",

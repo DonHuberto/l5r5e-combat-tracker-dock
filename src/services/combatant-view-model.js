@@ -71,9 +71,14 @@ async function buildEffects(adapter, { exact, descriptions }) {
     return output;
 }
 
-function portraitImage(combatant, source, user) {
+export function portraitImage(combatant, source, user) {
     if (source === "actor" && canObserveActor(combatant.actor, user)) return String(combatant.actor?.img ?? combatant.img ?? combatant.token?.texture?.src ?? "icons/svg/mystery-man.svg");
     return String(combatant.token?.texture?.src ?? combatant.img ?? combatant.actor?.img ?? "icons/svg/mystery-man.svg");
+}
+
+function isVideoPath(source) {
+    return globalThis.foundry?.helpers?.media?.VideoHelper?.hasVideoExtension?.(source) ??
+        /\.(?:webm|mp4|m4v|ogv|ogg)(?:[?#].*)?$/i.test(source);
 }
 
 function dispositionClass(combatant, enabled) {
@@ -105,13 +110,15 @@ export async function buildCombatantViewModel({ combatant, combat, user = global
     const active = combat?.combatant?.id === combatant.id || combat?.turns?.[combat?.turn]?.id === combatant.id;
     const initiativeRolled = combatant.initiative !== null && combatant.initiative !== undefined;
     const hideInitiative = !user?.isGM && !exact && settings.hideEnemyInitiative;
+    const img = portraitImage(combatant, settings.portraitImage, user);
     const viewModel = {
         id: String(combatant.id),
         actorId: String(combatant.actor?.id ?? ""),
         tokenId: String(combatant.token?.id ?? combatant.tokenId ?? ""),
         sceneId: String(combatant.sceneId ?? combatant.token?.parent?.id ?? ""),
         name,
-        img: portraitImage(combatant, settings.portraitImage, user),
+        img,
+        portraitVideo: isVideoPath(img),
         kind: adapter.kind,
         disposition: dispositionClass(combatant, settings.showDisposition),
         active,

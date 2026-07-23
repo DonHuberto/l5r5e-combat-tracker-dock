@@ -34,6 +34,8 @@ export function registerSettings() {
     register("hideEnemyInitiative", { name: "L5RCTD.Setting.HideEnemyInitiative.Name", hint: "L5RCTD.Setting.HideEnemyInitiative.Hint", scope: "world", config: true, restricted: true, type: Boolean, default: false });
     register("effectDescriptions", { name: "L5RCTD.Setting.EffectDescriptions.Name", hint: "L5RCTD.Setting.EffectDescriptions.Hint", scope: "world", config: true, restricted: true, type: Boolean, default: false });
     register("eventChatCards", { name: "L5RCTD.Setting.EventChat.Name", hint: "L5RCTD.Setting.EventChat.Hint", scope: "world", config: true, restricted: true, type: Boolean, default: true });
+    register("visible", { scope: "client", config: false, type: Boolean, default: true });
+    register("collapsed", { scope: "client", config: false, type: Boolean, default: false });
 
     register("placement", { name: "L5RCTD.Setting.Placement.Name", hint: "L5RCTD.Setting.Placement.Hint", scope: "client", config: true, type: String, choices: { docked: "L5RCTD.Setting.Placement.Docked", floating: "L5RCTD.Setting.Placement.Floating" }, default: "docked" });
     register("dockEdge", { name: "L5RCTD.Setting.DockEdge.Name", hint: "L5RCTD.Setting.DockEdge.Hint", scope: "client", config: true, type: String, choices: { top: "L5RCTD.Setting.DockEdge.Top", bottom: "L5RCTD.Setting.DockEdge.Bottom" }, default: "top" });
@@ -80,5 +82,7 @@ export function getDockSettings() {
         showDisposition: get("showDisposition"),
         hideConflictingUi: get("hideConflictingUi"),
         nameVisibility: get("nameVisibility"),
+        visible: get("visible"),
+        collapsed: get("collapsed"),
     };
 }

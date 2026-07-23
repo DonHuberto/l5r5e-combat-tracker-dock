@@ -11,13 +11,14 @@ import { ParticipantDialog } from "./participant-dialog.js";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 export class CombatDock extends HandlebarsApplicationMixin(ApplicationV2) {
-    constructor({ gateway, timelineService, templateService, participantService, removalService } = {}, options = {}) {
+    constructor({ gateway, timelineService, templateService, participantService, removalService, visibilityController } = {}, options = {}) {
         super(options);
         this.gateway = gateway;
         this.timeline = timelineService;
         this.templates = templateService;
         this.participants = participantService;
         this.removals = removalService;
+        this.visibility = visibilityController;
         this.combat = gateway.currentCombat();
         this.horizonExpanded = false;
         this.seenCombatants = new Set();
@@ -64,6 +65,8 @@ export class CombatDock extends HandlebarsApplicationMixin(ApplicationV2) {
             toggleHorizon: CombatDock.toggleHorizon,
             closeHorizon: CombatDock.closeHorizon,
             resolveEvent: CombatDock.resolveEvent,
+            collapse: CombatDock.collapse,
+            restore: CombatDock.restore,
         },
     };
 
@@ -104,6 +107,7 @@ export class CombatDock extends HandlebarsApplicationMixin(ApplicationV2) {
             profiles: settings.profiles,
             locale,
             settings,
+            collapsed: Boolean(settings.collapsed),
             gateway: this.gateway,
             localize: (key) => game.i18n.localize(key),
         }) : null;
@@ -312,6 +316,15 @@ export class CombatDock extends HandlebarsApplicationMixin(ApplicationV2) {
         this.render({ force: true });
     }
 
+    static async collapse() {
+        this.horizonExpanded = false;
+        await this.visibility?.setCollapsed(true);
+    }
+
+    static async restore() {
+        await this.visibility?.setCollapsed(false);
+    }
+
     async close(options = {}) {
         this.registry.clear();
         this.refreshDebounced.cancel();
@@ -319,6 +332,7 @@ export class CombatDock extends HandlebarsApplicationMixin(ApplicationV2) {
         window.removeEventListener("resize", this.resizeHandler);
         window.removeEventListener("keydown", this.escapeHandler);
         document.body.classList.remove("l5rctd-hide-conflicting-ui");
+        await this.visibility?.dockClosed(this, options);
         if (globalThis.ui?.l5r5eCombatTrackerDock === this) delete globalThis.ui.l5r5eCombatTrackerDock;
         return super.close(options);
     }

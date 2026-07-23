@@ -1,4 +1,13 @@
 <section class="l5rctd-shell" aria-label="{{localize 'L5RCTD.Dock.Title'}}">
+    {{#if collapsed}}
+    <header class="l5rctd-toolbar l5rctd-collapsed-bar">
+        <div class="l5rctd-round" aria-live="polite">
+            <strong>{{localize "L5RCTD.Dock.Round"}} {{round}}</strong>
+            <span>{{localize "L5RCTD.Dock.Turn"}} {{turn}}</span>
+        </div>
+        <button type="button" data-action="restore" data-tooltip="L5RCTD.Visibility.Restore" aria-label="{{localize 'L5RCTD.Visibility.Restore'}}"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></button>
+    </header>
+    {{else}}
     <header class="l5rctd-toolbar">
         <div class="l5rctd-round" aria-live="polite">
             <strong>{{localize "L5RCTD.Dock.Round"}} {{round}}</strong>
@@ -6,6 +15,7 @@
             <span class="l5rctd-encounter-badge">{{encounterType}}</span>
         </div>
         <div class="l5rctd-toolbar-actions">
+            <button type="button" data-action="collapse" data-tooltip="L5RCTD.Visibility.Collapse" aria-label="{{localize 'L5RCTD.Visibility.Collapse'}}"><i class="fa-solid fa-down-left-and-up-right-to-center"></i></button>
             {{#if canAdvance}}
             <button type="button" data-action="previousTurn" data-tooltip="COMBAT.TurnPrev" aria-label="{{localize 'COMBAT.TurnPrev'}}"><i class="fa-solid fa-chevron-left"></i></button>
             <button type="button" data-action="nextTurn" data-tooltip="COMBAT.TurnNext" aria-label="{{localize 'COMBAT.TurnNext'}}"><i class="fa-solid fa-chevron-right"></i></button>
@@ -38,7 +48,12 @@
 
         {{#each combatants as |combatant|}}
         <article class="l5rctd-combatant {{#if combatant.active}}active{{/if}} {{#if combatant.defeated}}defeated{{/if}} {{#if combatant.disposition}}disposition-{{combatant.disposition}}{{/if}}" data-combatant-id="{{combatant.id}}" role="listitem" aria-label="{{combatant.name}}">
-            <button type="button" class="l5rctd-portrait" data-action="focusCombatant" style="background-image: url('{{combatant.img}}');" aria-label="{{combatant.name}}">
+            <button type="button" class="l5rctd-portrait" data-action="focusCombatant" aria-label="{{combatant.name}}">
+                {{#if combatant.portraitVideo}}
+                <video class="l5rctd-portrait-media" src="{{combatant.img}}" autoplay muted loop playsinline></video>
+                {{else}}
+                <img class="l5rctd-portrait-media" src="{{combatant.img}}" alt="">
+                {{/if}}
                 {{#if combatant.initiativeRolled}}<span class="l5rctd-initiative">{{combatant.initiative}}</span>{{/if}}
                 {{#if combatant.groupBadge}}<span class="l5rctd-group" title="{{localize 'L5RCTD.Combatant.Group'}}">{{combatant.groupBadge}}</span>{{/if}}
                 {{#if combatant.stance}}<span class="l5rctd-stance">{{combatant.stance}}</span>{{/if}}
@@ -111,5 +126,6 @@
             {{/each}}
         </div>
     </section>
+    {{/if}}
     {{/if}}
 </section>
